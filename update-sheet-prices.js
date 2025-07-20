@@ -8,18 +8,18 @@ const { updateSheetPrices } = require('./server'); // Adjust if needed
 app.get('/update-prices', async (req, res) => {
   try {
     await updateSheetPrices();
-    res.status(200).send('Sheet prices updated!');
+    res.status(200).json({ success: true, message: 'Sheet prices updated!' });
   } catch (err) {
-    res.status(500).send('Error updating prices: ' + err.message);
+    res.status(500).json({ success: false, message: 'Error updating prices', error: err.message });
   }
 });
 
 app.post('/update-prices', async (req, res) => {
   try {
     await updateSheetPrices();
-    res.status(200).send('Sheet prices updated!');
+    res.status(200).json({ success: true, message: 'Sheet prices updated!' });
   } catch (err) {
-    res.status(500).send('Error updating prices: ' + err.message);
+    res.status(500).json({ success: false, message: 'Error updating prices', error: err.message });
   }
 });
 

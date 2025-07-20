@@ -14,6 +14,15 @@ app.get('/update-prices', async (req, res) => {
   }
 });
 
+app.post('/update-prices', async (req, res) => {
+  try {
+    await updateSheetPrices();
+    res.status(200).send('Sheet prices updated!');
+  } catch (err) {
+    res.status(500).send('Error updating prices: ' + err.message);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

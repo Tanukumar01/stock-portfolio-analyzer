@@ -78,6 +78,4 @@ async function updateSheetPrices() {
   }
 }
 
-updateSheetPrices().catch(err => {
-  console.error(' Error updating sheet:', err.message);
-}); 
+module.exports = { updateSheetPrices }; 
